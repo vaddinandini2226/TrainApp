@@ -1,63 +1,44 @@
 package trainappPrograms;
 
 /*
- * Program: Safe Cargo Assignment
- * Purpose: Demonstrates runtime exception handling for
- *          validating safe cargo assignment to goods bogies.
+ * Program: Manual Sorting using Bubble Sort
+ * Purpose: Demonstrates the Bubble Sort algorithm to
+ *          sort passenger bogie capacities in ascending order.
  */
-
-class CargoSafetyException extends RuntimeException {
-
-    public CargoSafetyException(String message) {
-        super(message);
-    }
-}
-
-class GoodsBogie {
-
-    String shape;
-
-    public GoodsBogie(String shape) {
-        this.shape = shape;
-    }
-
-    public void assignCargo(String cargo) {
-
-        try {
-
-            if (shape.equals("Rectangular") && cargo.equals("Petroleum")) {
-                throw new CargoSafetyException("Unsafe cargo assignment!");
-            }
-
-            System.out.println("Cargo assigned successfully -> " + cargo);
-
-        } catch (CargoSafetyException e) {
-
-            System.out.println("Error: " + e.getMessage());
-
-        } finally {
-
-            System.out.println("Cargo validation completed for " + shape + " bogie");
-        }
-    }
-}
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println("UC15 - Safe Cargo Assignment");
+        System.out.println("UC16 - Manual Sorting using Bubble Sort");
         System.out.println("======================================\n");
 
-        GoodsBogie cylindrical = new GoodsBogie("Cylindrical");
-        cylindrical.assignCargo("Petroleum");
+        int[] capacities = {72, 56, 24, 70, 60};
 
-        System.out.println();
+        System.out.println("Original Capacities:");
+        for (int capacity : capacities) {
+            System.out.print(capacity + " ");
+        }
 
-        GoodsBogie rectangular = new GoodsBogie("Rectangular");
-        rectangular.assignCargo("Petroleum");
+        for (int i = 0; i < capacities.length - 1; i++) {
 
-        System.out.println("\nUC15 runtime handling completed...");
+            for (int j = 0; j < capacities.length - 1 - i; j++) {
+
+                if (capacities[j] > capacities[j + 1]) {
+
+                    int temp = capacities[j];
+                    capacities[j] = capacities[j + 1];
+                    capacities[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("\n\nSorted Capacities (Ascending):");
+        for (int capacity : capacities) {
+            System.out.print(capacity + " ");
+        }
+
+        System.out.println("\n\nUC16 sorting completed...");
     }
 }
