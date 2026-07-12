@@ -1,34 +1,53 @@
 package trainappPrograms;
 
 /*
- * Program: Map Bogie to Capacity
- * Purpose: Demonstrates the use of HashMap to store
- *          bogie names along with their seating capacities.
+ * Program: Sort Bogies by Capacity
+ * Purpose: Demonstrates the use of Comparator to sort
+ *          bogies based on their seating capacity.
  */
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+class Bogie {
+
+    String name;
+    int capacity;
+
+    public Bogie(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+    }
+}
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println("UC6 - Map Bogie to Capacity (HashMap)");
+        System.out.println("UC7 - Sort Bogies by Capacity (Comparator)");
         System.out.println("======================================\n");
 
-        HashMap<String, Integer> bogieCapacity = new HashMap<>();
+        List<Bogie> bogies = new ArrayList<>();
 
-        bogieCapacity.put("First Class", 24);
-        bogieCapacity.put("Cargo", 120);
-        bogieCapacity.put("Sleeper", 72);
-        bogieCapacity.put("AC Chair", 56);
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("General", 90));
 
-        System.out.println("Bogie Capacity Details:");
-
-        for (String key : bogieCapacity.keySet()) {
-            System.out.println(key + " ---> " + bogieCapacity.get(key));
+        System.out.println("Before Sorting:");
+        for (Bogie b : bogies) {
+            System.out.println(b.name + " -> " + b.capacity);
         }
 
-        System.out.println("\nUC6 bogie-capacity mapping completed...");
+        bogies.sort(Comparator.comparingInt(b -> b.capacity));
+
+        System.out.println("\nAfter Sorting by Capacity:");
+        for (Bogie b : bogies) {
+            System.out.println(b.name + " -> " + b.capacity);
+        }
+
+        System.out.println("\nUC7 sorting completed...");
     }
 }
