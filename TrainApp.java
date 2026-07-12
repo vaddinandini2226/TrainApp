@@ -1,42 +1,35 @@
 /*
- * Program: Add Passenger Bogies to Train
- * Purpose: Demonstrates adding, removing, searching, and displaying
- *          passenger bogies using an ArrayList.
+ * Program: Track Unique Bogie IDs
+ * Purpose: Demonstrates the use of HashSet to store
+ *          unique bogie IDs by automatically removing duplicates.
  * Author : Vaddi Nandini
  */
 package trainappPrograms;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println("UC2 - Add Passenger Bogies to Train");
+        System.out.println("UC3 - Track Unique Bogie IDs");
         System.out.println("======================================\n");
 
-        ArrayList<String> passengerBogies = new ArrayList<>();
+        HashSet<String> bogieIds = new HashSet<>();
 
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        bogieIds.add("BG104");
+        bogieIds.add("BG103");
+        bogieIds.add("BG102");
+        bogieIds.add("BG101");
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
 
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + passengerBogies);
+        System.out.println("Bogie IDs After Insertion:");
+        System.out.println(bogieIds);
 
-        passengerBogies.remove("AC Chair");
+        System.out.println("\nNote:");
+        System.out.println("Duplicates are automatically ignored by HashSet.");
 
-        System.out.println("\nAfter Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + passengerBogies);
-
-        boolean containsSleeper = passengerBogies.contains("Sleeper");
-
-        System.out.println("\nChecking if 'Sleeper' exists:");
-        System.out.println("Contains Sleeper? : " + containsSleeper);
-
-        System.out.println("\nFinal Train Passenger Consist:");
-        System.out.println(passengerBogies);
-
-        System.out.println("\nUC2 operations completed successfully...");
+        System.out.println("\nUC3 uniqueness validation completed...");
     }
 }
