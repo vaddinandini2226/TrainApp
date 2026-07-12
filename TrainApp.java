@@ -1,35 +1,44 @@
-/*
- * Program: Track Unique Bogie IDs
- * Purpose: Demonstrates the use of HashSet to store
- *          unique bogie IDs by automatically removing duplicates.
- * Author : Vaddi Nandini
- */
 package trainappPrograms;
-import java.util.HashSet;
+
+/*
+ * Program: Maintain Ordered Bogie Consist
+ * Purpose: Demonstrates the use of LinkedList to maintain
+ *          an ordered train consist by adding, inserting,
+ *          and removing bogies.
+ */
+
+import java.util.LinkedList;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println("UC3 - Track Unique Bogie IDs");
+        System.out.println("UC4 - Maintain Ordered Bogie Consist");
         System.out.println("======================================\n");
 
-        HashSet<String> bogieIds = new HashSet<>();
+        LinkedList<String> trainConsist = new LinkedList<>();
 
-        bogieIds.add("BG104");
-        bogieIds.add("BG103");
-        bogieIds.add("BG102");
-        bogieIds.add("BG101");
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
+        trainConsist.add("Engine");
+        trainConsist.add("Sleeper");
+        trainConsist.add("AC");
+        trainConsist.add("Cargo");
+        trainConsist.add("Guard");
 
-        System.out.println("Bogie IDs After Insertion:");
-        System.out.println(bogieIds);
+        System.out.println("Initial Train Consist:");
+        System.out.println(trainConsist);
 
-        System.out.println("\nNote:");
-        System.out.println("Duplicates are automatically ignored by HashSet.");
+        trainConsist.add(2, "Pantry Car");
 
-        System.out.println("\nUC3 uniqueness validation completed...");
+        System.out.println("\nAfter Inserting 'Pantry Car' at position 2:");
+        System.out.println(trainConsist);
+
+        trainConsist.removeFirst();
+        trainConsist.removeLast();
+
+        System.out.println("\nAfter Removing First and Last Bogie:");
+        System.out.println(trainConsist);
+
+        System.out.println("\nUC4 ordered consist operations completed...");
     }
 }
