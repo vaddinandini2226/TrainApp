@@ -1,9 +1,9 @@
 package trainappPrograms;
 
 /*
- * Program: Manual Sorting using Bubble Sort
- * Purpose: Demonstrates the Bubble Sort algorithm to
- *          sort passenger bogie capacities in ascending order.
+ * Program: Linear Search for Bogie ID
+ * Purpose: Demonstrates the Linear Search algorithm
+ *          to find a specific bogie ID in the train consist.
  */
 
 public class TrainApp {
@@ -11,34 +11,39 @@ public class TrainApp {
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println("UC16 - Manual Sorting using Bubble Sort");
+        System.out.println("UC18 - Linear Search for Bogie ID");
         System.out.println("======================================\n");
 
-        int[] capacities = {72, 56, 24, 70, 60};
+        String[] bogieIds = {
+                "BG101",
+                "BG205",
+                "BG309",
+                "BG412",
+                "BG550"
+        };
 
-        System.out.println("Original Capacities:");
-        for (int capacity : capacities) {
-            System.out.print(capacity + " ");
+        String searchId = "BG309";
+
+        System.out.println("Available Bogie IDs:");
+        for (String id : bogieIds) {
+            System.out.println(id);
         }
 
-        for (int i = 0; i < capacities.length - 1; i++) {
+        boolean found = false;
 
-            for (int j = 0; j < capacities.length - 1 - i; j++) {
-
-                if (capacities[j] > capacities[j + 1]) {
-
-                    int temp = capacities[j];
-                    capacities[j] = capacities[j + 1];
-                    capacities[j + 1] = temp;
-                }
+        for (String id : bogieIds) {
+            if (id.equals(searchId)) {
+                found = true;
+                break;
             }
         }
 
-        System.out.println("\n\nSorted Capacities (Ascending):");
-        for (int capacity : capacities) {
-            System.out.print(capacity + " ");
+        if (found) {
+            System.out.println("\nBogie " + searchId + " found in train consist.");
+        } else {
+            System.out.println("\nBogie " + searchId + " not found in train consist.");
         }
 
-        System.out.println("\n\nUC16 sorting completed...");
+        System.out.println("\nUC18 search completed...");
     }
 }
