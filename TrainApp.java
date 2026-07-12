@@ -1,36 +1,34 @@
 package trainappPrograms;
 
 /*
- * Program: Preserve Insertion Order of Bogies
- * Purpose: Demonstrates the use of LinkedHashSet to
- *          maintain insertion order while automatically
- *          removing duplicate bogies.
+ * Program: Map Bogie to Capacity
+ * Purpose: Demonstrates the use of HashMap to store
+ *          bogie names along with their seating capacities.
  */
 
-import java.util.LinkedHashSet;
+import java.util.HashMap;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println("UC5 - Preserve Insertion Order of Bogies");
+        System.out.println("UC6 - Map Bogie to Capacity (HashMap)");
         System.out.println("======================================\n");
 
-        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
+        HashMap<String, Integer> bogieCapacity = new HashMap<>();
 
-        trainFormation.add("Engine");
-        trainFormation.add("Sleeper");
-        trainFormation.add("Cargo");
-        trainFormation.add("Guard");
-        trainFormation.add("Sleeper");
+        bogieCapacity.put("First Class", 24);
+        bogieCapacity.put("Cargo", 120);
+        bogieCapacity.put("Sleeper", 72);
+        bogieCapacity.put("AC Chair", 56);
 
-        System.out.println("Final Train Formation:");
-        System.out.println(trainFormation);
+        System.out.println("Bogie Capacity Details:");
 
-        System.out.println("\nNote:");
-        System.out.println("LinkedHashSet preserves insertion order and removes duplicates automatically.");
+        for (String key : bogieCapacity.keySet()) {
+            System.out.println(key + " ---> " + bogieCapacity.get(key));
+        }
 
-        System.out.println("\nUC5 formation setup completed...");
+        System.out.println("\nUC6 bogie-capacity mapping completed...");
     }
 }
